@@ -1,14 +1,43 @@
+[WIP]
 # easy_forms
+Create **forms** with **less code**.
 
-A new Flutter package project.
+It's **simple** and **fast**.
 
-## Getting Started
+With this package you can create forms **without having to manage controllers or variables** for your fields (A stateful widget is no longer needed). This package aslo provide some usefull **common validators** for your fields.
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+## Example
+### Login form
+```dart
+@override
+Widget build(BuildContext context) => EasyForm(
+    runSpacing: 8,
+    spacing: 8,
+    children: [
+        EasyTextField(
+            hintText: 'Email',
+        ),
+        EasyTextField(
+            hintText: 'Password',
+        ),
+        EasyFormButton(
+            child: Text('Validate'),
+            onPressed: (formData){
+                final email = formData[0];
+                final password = formData[1];
+                // query server / send event to a bloc
+            }
+        ),
+    ]
+);
+```
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+### Register form
+```dart
+@override
+Widget build(BuildContext context) => EasyForm(
+    runSpacing: 8,
+    spacing: 8,
+    children: []
+);
+```
